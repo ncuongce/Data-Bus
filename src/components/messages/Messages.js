@@ -6,8 +6,14 @@ import PropTypes from 'prop-types';
 import { getMessages } from '../../actions/messageActions';
 
 const Messages = ({ message: { messages, loading }, getMessages }) => {
+  const scrollToBottom = () => {
+    var scrollingElement = (document.scrollingElement || document.body); 
+    scrollingElement.scrollTop = scrollingElement.scrollHeight;
+  }
+
   useEffect(() => {
     setInterval(getMessages, 100);
+    setInterval(scrollToBottom, 200);
     // eslint-disable-next-line
   }, []);
 
