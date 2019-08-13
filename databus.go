@@ -23,8 +23,8 @@ type ChannelStruct struct {
 }
 
 type Database struct {
-	Messages []MessageStruct
-	Channels []ChannelStruct
+	Messages []MessageStruct `json:"messages"`
+	Channels []ChannelStruct `json:"channels"`
 }
 
 var Db Database

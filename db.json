@@ -1,15 +1,1 @@
-{
-  "Messages": [],
-  "Channels": [
-    {
-      "id": 1,
-      "protocol": "A429",
-      "number": "#1"
-    },
-    {
-      "id": 2,
-      "protocol": "A717",
-      "number": "#2"
-    }
-  ]
-}
+{"messages":[],"channels":[{"id":1,"protocol":"A429","number":"#1"},{"id":2,"protocol":"A717","number":"#2"}]}

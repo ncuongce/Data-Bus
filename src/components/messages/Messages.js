@@ -7,7 +7,7 @@ import { getMessages } from '../../actions/messageActions';
 
 const Messages = ({ message: { messages, loading }, getMessages }) => {
   useEffect(() => {
-    setInterval(getMessages, 100);
+    setInterval(getMessages, 500);
     // eslint-disable-next-line
   }, []);
 
