@@ -33,7 +33,7 @@ const AddMessageModal = ({ addMessage }) => {
   };
 
   return (
-    <div id='add-message-modal' className='modal' style={modalStyle}>
+    <div id='add-message-modal' className='modal'>
       <div className='modal-content'>
         <h4>Add ARINC Message</h4>
         <div className='row'>
@@ -82,11 +82,6 @@ const AddMessageModal = ({ addMessage }) => {
 
 AddMessageModal.propTypes = {
   addMessage: PropTypes.func.isRequired
-};
-
-const modalStyle = {
-  width: '75%',
-  height: '75%'
 };
 
 export default connect(
