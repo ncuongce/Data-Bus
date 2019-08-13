@@ -1,6 +1,4 @@
-# ITLogger
-
-> React app to track IT department tasks and issues. Uses JSON-Server as a mock backend. This is part of my React course on Udemy
+# wa2-spa
 
 ## Usage
 
@@ -13,6 +11,14 @@ Open [http://localhost:3000](http://localhost:3000)
 Server [http://localhost:5000](http://localhost:5000)
 db.json contains data
 
+### `./databus`
+
+Run the databus server to simulate messages from the databus.<br>
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.<br>
+
+
+
+

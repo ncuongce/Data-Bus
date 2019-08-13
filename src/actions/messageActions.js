@@ -1,57 +1,43 @@
 import {
-  GET_LOGS,
+  GET_MESSAGES,
   SET_LOADING,
-  LOGS_ERROR,
-  ADD_LOG,
-  DELETE_LOG,
-  UPDATE_LOG,
-  SEARCH_LOGS,
+  MESSAGES_ERROR,
+  ADD_MESSAGE,
+  DELETE_MESSAGE,
+  UPDATE_MESSAGE,
+  SEARCH_MESSAGES,
   SET_CURRENT,
   CLEAR_CURRENT
 } from './types';
 
-// export const getLogs = () => {
-//   return async dispatch => {
-//     setLoading();
-
-//     const res = await fetch('/logs');
-//     const data = await res.json();
-
-//     dispatch({
-//       type: GET_LOGS,
-//       payload: data
-//     });
-//   };
-// };
-
-// Get logs from server
-export const getLogs = () => async dispatch => {
+// Get messages from server
+export const getMessages = () => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('/logs');
+    const res = await fetch('/messages');
     const data = await res.json();
 
     dispatch({
-      type: GET_LOGS,
+      type: GET_MESSAGES,
       payload: data
     });
   } catch (err) {
     dispatch({
-      type: LOGS_ERROR,
+      type: MESSAGES_ERROR,
       payload: err.response.statusText
     });
   }
 };
 
-// Add new log
-export const addLog = log => async dispatch => {
+// Add new message
+export const addMessage = message => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch('/logs', {
+    const res = await fetch('/messages', {
       method: 'POST',
-      body: JSON.stringify(log),
+      body: JSON.stringify(message),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -59,46 +45,46 @@ export const addLog = log => async dispatch => {
     const data = await res.json();
 
     dispatch({
-      type: ADD_LOG,
+      type: ADD_MESSAGE,
       payload: data
     });
   } catch (err) {
     dispatch({
-      type: LOGS_ERROR,
+      type: MESSAGES_ERROR,
       payload: err.response.statusText
     });
   }
 };
 
-// Delete log from server
-export const deleteLog = id => async dispatch => {
+// Delete message from server
+export const deleteMessage = id => async dispatch => {
   try {
     setLoading();
 
-    await fetch(`/logs/${id}`, {
+    await fetch(`/messages/${id}`, {
       method: 'DELETE'
     });
 
     dispatch({
-      type: DELETE_LOG,
+      type: DELETE_MESSAGE,
       payload: id
     });
   } catch (err) {
     dispatch({
-      type: LOGS_ERROR,
+      type: MESSAGES_ERROR,
       payload: err.response.statusText
     });
   }
 };
 
-// Update log on server
-export const updateLog = log => async dispatch => {
+// Update message on server
+export const updateMessage = message => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch(`/logs/${log.id}`, {
+    const res = await fetch(`/messages/${message.id}`, {
       method: 'PUT',
-      body: JSON.stringify(log),
+      body: JSON.stringify(message),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -107,46 +93,46 @@ export const updateLog = log => async dispatch => {
     const data = await res.json();
 
     dispatch({
-      type: UPDATE_LOG,
+      type: UPDATE_MESSAGE,
       payload: data
     });
   } catch (err) {
     dispatch({
-      type: LOGS_ERROR,
+      type: MESSAGES_ERROR,
       payload: err.response.statusText
     });
   }
 };
 
-// Search server logs
-export const searchLogs = text => async dispatch => {
+// Search server messages
+export const searchMessages = text => async dispatch => {
   try {
     setLoading();
 
-    const res = await fetch(`/logs?q=${text}`);
+    const res = await fetch(`/messages?q=${text}`);
     const data = await res.json();
 
     dispatch({
-      type: SEARCH_LOGS,
+      type: SEARCH_MESSAGES,
       payload: data
     });
   } catch (err) {
     dispatch({
-      type: LOGS_ERROR,
+      type: MESSAGES_ERROR,
       payload: err.response.statusText
     });
   }
 };
 
-// Set current log
-export const setCurrent = log => {
+// Set current message
+export const setCurrent = message => {
   return {
     type: SET_CURRENT,
-    payload: log
+    payload: message
   };
 };
 
-// Clear current log
+// Clear current message
 export const clearCurrent = () => {
   return {
     type: CLEAR_CURRENT

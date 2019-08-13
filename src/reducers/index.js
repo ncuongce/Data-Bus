@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import logReducer from './logReducer';
-import techReducer from './techReducer';
+import messageReducer from './messageReducer';
+import channelReducer from './channelReducer';
 
 export default combineReducers({
-  log: logReducer,
-  tech: techReducer
+  message: messageReducer,
+  channel: channelReducer
 });

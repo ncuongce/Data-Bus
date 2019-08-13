@@ -1,35 +1,35 @@
 import {
-  GET_TECHS,
-  ADD_TECH,
-  DELETE_TECH,
+  GET_CHANNELS,
+  ADD_CHANNEL,
+  DELETE_CHANNEL,
   SET_LOADING,
-  TECHS_ERROR
+  CHANNELS_ERROR
 } from '../actions/types';
 
 const initialState = {
-  techs: null,
+  channels: null,
   loading: false,
   error: null
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_TECHS:
+    case GET_CHANNELS:
       return {
         ...state,
-        techs: action.payload,
+        channels: action.payload,
         loading: false
       };
-    case ADD_TECH:
+    case ADD_CHANNEL:
       return {
         ...state,
-        techs: [...state.techs, action.payload],
+        channels: [...state.channels, action.payload],
         loading: false
       };
-    case DELETE_TECH:
+    case DELETE_CHANNEL:
       return {
         ...state,
-        techs: state.techs.filter(tech => tech.id !== action.payload),
+        channels: state.channels.filter(channel => channel.id !== action.payload),
         loading: false
       };
     case SET_LOADING:
@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
         ...state,
         loading: true
       };
-    case TECHS_ERROR:
+    case CHANNELS_ERROR:
       console.error(action.payload);
       return {
         ...state,

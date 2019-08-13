@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { searchLogs } from '../../actions/logActions';
+import { searchMessages } from '../../actions/messageActions';
 
-const SearchBar = ({ searchLogs }) => {
+const SearchBar = ({ searchMessages }) => {
   const text = useRef('');
 
   const onChange = e => {
-    searchLogs(text.current.value);
+    searchMessages(text.current.value);
   };
 
   return (
@@ -18,7 +18,7 @@ const SearchBar = ({ searchLogs }) => {
             <input
               id='search'
               type='search'
-              placeholder='Search Logs..'
+              placeholder='Search ARINC Messages...'
               ref={text}
               onChange={onChange}
             />
@@ -34,10 +34,10 @@ const SearchBar = ({ searchLogs }) => {
 };
 
 SearchBar.propTypes = {
-  searchLogs: PropTypes.func.isRequired
+  searchMessages: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { searchLogs }
+  { searchMessages }
 )(SearchBar);

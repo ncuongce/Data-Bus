@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { deleteTech } from '../../actions/techActions';
+import { deleteChannel } from '../../actions/channelActions';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const TechItem = ({ tech: { id, firstName, lastName }, deleteTech }) => {
+const ChannelItem = ({ channel: { id, protocol, number }, deleteChannel }) => {
   const onDelete = () => {
-    deleteTech(id);
-    M.toast({ html: 'Technician deleted' });
+    deleteChannel(id);
+    M.toast({ html: 'Channel deleted' });
   };
 
   return (
     <li className='collection-item'>
       <div>
-        {firstName} {lastName}
+        {protocol} {number}
         <a href='#!' className='secondary-content' onClick={onDelete}>
           <i className='material-icons grey-text'>delete</i>
         </a>
@@ -22,12 +22,12 @@ const TechItem = ({ tech: { id, firstName, lastName }, deleteTech }) => {
   );
 };
 
-TechItem.propTypes = {
-  tech: PropTypes.object.isRequired,
-  deleteTech: PropTypes.func.isRequired
+ChannelItem.propTypes = {
+  channel: PropTypes.object.isRequired,
+  deleteChannel: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { deleteTech }
-)(TechItem);
+  { deleteChannel }
+)(ChannelItem);
