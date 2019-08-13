@@ -25,7 +25,7 @@ export const getMessages = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: MESSAGES_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot get messages"
     });
   }
 };
@@ -51,7 +51,7 @@ export const addMessage = message => async dispatch => {
   } catch (err) {
     dispatch({
       type: MESSAGES_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot add message"
     });
   }
 };
@@ -72,7 +72,7 @@ export const deleteMessage = id => async dispatch => {
   } catch (err) {
     dispatch({
       type: MESSAGES_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot delete message"
     });
   }
 };
@@ -99,7 +99,7 @@ export const updateMessage = message => async dispatch => {
   } catch (err) {
     dispatch({
       type: MESSAGES_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot update message"
     });
   }
 };
@@ -119,7 +119,7 @@ export const searchMessages = text => async dispatch => {
   } catch (err) {
     dispatch({
       type: MESSAGES_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot search messages"
     });
   }
 };

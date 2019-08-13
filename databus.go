@@ -1,25 +1,25 @@
 package main
 
 import (
-//	"fmt"
+	//	"fmt"
+	"encoding/json"
 	"io/ioutil"
 	"os"
-	"encoding/json"
 	"time"
 )
 
 type MessageStruct struct {
-	Id int 					`json:"id"`
-	Data string			`json:"data"`
-	Attention bool  `json:"attention"`
-	Channel string  `json:"channel"`
-	Date string     `json:"date"`
+	Id        int    `json:"id"`
+	Data      string `json:"data"`
+	Attention bool   `json:"attention"`
+	Channel   string `json:"channel"`
+	Date      string `json:"date"`
 }
 
 type ChannelStruct struct {
-	Id int          `json:"id"`
+	Id       int    `json:"id"`
 	Protocol string `json:"protocol"`
-	Number string   `json:"number"`
+	Number   string `json:"number"`
 }
 
 type Database struct {
@@ -59,7 +59,7 @@ func init() {
 
 func main() {
 	msg := MessageStruct{
-		1, 
+		1,
 		"0xffffffff",
 		true,
 		"A429 #1",
@@ -71,6 +71,6 @@ func main() {
 		Db.Messages = append(Db.Messages, msg)
 		SaveData()
 		id += 1
-		time.Sleep(1000 * time.Millisecond)
+		time.Sleep(100 * time.Millisecond)
 	}
 }

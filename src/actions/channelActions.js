@@ -21,7 +21,7 @@ export const getChannels = () => async dispatch => {
   } catch (err) {
     dispatch({
       type: CHANNELS_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot get channels"
     });
   }
 };
@@ -47,7 +47,7 @@ export const addChannel = channel => async dispatch => {
   } catch (err) {
     dispatch({
       type: CHANNELS_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot add channel"
     });
   }
 };
@@ -67,7 +67,7 @@ export const deleteChannel = id => async dispatch => {
   } catch (err) {
     dispatch({
       type: CHANNELS_ERROR,
-      payload: err.response.statusText
+      payload: "Cannot delete channel"
     });
   }
 };
