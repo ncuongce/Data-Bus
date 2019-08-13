@@ -1,4 +1,4 @@
-# wa2-spa
+# Avionics Data Bus Simulator
 
 ## Usage
 
