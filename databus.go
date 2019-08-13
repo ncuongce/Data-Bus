@@ -59,12 +59,15 @@ func init() {
 
 func main() {
 	msg := MessageStruct{
-		1,
+		0,
 		"0xffffffff",
 		true,
 		"A429 #1",
 		""}
-	id := 1
+	id := 0
+	if len(Db.Messages) != 0 {
+		id = Db.Messages[len(Db.Messages)-1].Id + 1
+	}
 	for {
 		msg.Id = id
 		msg.Date = time.Now().String()
